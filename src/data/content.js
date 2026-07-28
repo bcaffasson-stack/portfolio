@@ -136,7 +136,7 @@ export const projects = [
     title: "Projet PHP — Gestion de Restaurant",
     description: "Application web complète de gestion pour un restaurant",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600",
+    image: `${import.meta.env.BASE_URL}assets/projects/php-restaurant-login.png`,
     technologies: ["PHP", "MySQL", "Bootstrap", "Sessions & Sécurité"],
     details: [
       "Développement d'une application web complète de gestion pour un restaurant (administration, menus, commandes, réservations).",
@@ -152,7 +152,7 @@ export const projects = [
     title: "Projet de Routage IP",
     description: "Configuration de topologies réseau avec GNS3 et OSPF",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
+    image: `${import.meta.env.BASE_URL}assets/projects/routage-ip-topologie.png`,
     technologies: ["GNS3", "OSPF", "RIP", "Réseaux"],
     details: [
       "Conception et configuration de topologies réseau complexes sous GNS3.",
