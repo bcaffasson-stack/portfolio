@@ -163,7 +163,7 @@ export default function About() {
         >
           {[
             { icon: 'fa-graduation-cap', title: 'Formation', value: 'Licence en cours', desc: 'ENI Fianarantsoa' },
-            { icon: 'fa-code', title: 'Projets', value: '03', desc: 'Projets académiques' },
+            { icon: 'fa-code', title: 'Projets', value: 'Multiples', desc: 'Projets académiques' },
             { icon: 'fa-language', title: 'Langues', value: '03', desc: 'Malagasy, Français, Anglais' },
           ].map((stat, index) => (
             <motion.div

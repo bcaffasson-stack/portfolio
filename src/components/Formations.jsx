@@ -153,13 +153,12 @@ export default function Formations() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          className="mt-16 grid grid-cols-3 gap-4 max-w-3xl mx-auto"
         >
           {[
             { icon: 'fa-graduation-cap', value: '5', label: 'Formations', color: 'from-blue-500 to-blue-600' },
             { icon: 'fa-certificate', value: '2', label: 'Certifications', color: 'from-green-500 to-green-600' },
             { icon: 'fa-clock', value: '2024-2026', label: 'Période', color: 'from-purple-500 to-purple-600' },
-            { icon: 'fa-globe', value: '3', label: 'Villes', color: 'from-orange-500 to-orange-600' },
           ].map((stat, index) => (
             <motion.div
               key={index}

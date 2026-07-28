@@ -214,7 +214,7 @@ export default function Skills() {
           {[
             { icon: 'fa-code', value: '6', label: 'Domaines', color: 'from-blue-500 to-blue-600' },
             { icon: 'fa-tools', value: '20+', label: 'Outils maîtrisés', color: 'from-green-500 to-green-600' },
-            { icon: 'fa-project-diagram', value: '3', label: 'Projets réalisés', color: 'from-purple-500 to-purple-600' },
+            { icon: 'fa-project-diagram', value: 'Multiples', label: 'Projets réalisés', color: 'from-purple-500 to-purple-600' },
             { icon: 'fa-chart-line', value: '85%', label: 'Niveau moyen', color: 'from-orange-500 to-orange-600' },
           ].map((stat, index) => (
             <motion.div

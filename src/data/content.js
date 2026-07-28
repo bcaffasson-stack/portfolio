@@ -20,7 +20,7 @@ export const personalInfo = {
   stats: [
     { value: "2026", label: "Licence en cours — ENI" },
     { value: "03", label: "Langues parlées" },
-    { value: "03", label: "Projets académiques menés" },
+    { value: "Multiples", label: "Projets Académiques Menés" },
   ],
 };
 
