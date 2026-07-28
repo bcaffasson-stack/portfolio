@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { personalInfo, navLinks } from '../data/content';
+import { personalInfo } from '../data/content';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,24 +14,9 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { 
-      name: 'github', 
-      icon: 'fa-github', 
-      url: 'https://github.com/bcaffasson-stack',
-      color: 'hover:text-gray-300'
-    },
-    { 
-      name: 'linkedin', 
-      icon: 'fa-linkedin', 
-      url: 'https://linkedin.com',
-      color: 'hover:text-blue-400'
-    },
-    { 
-      name: 'twitter', 
-      icon: 'fa-twitter', 
-      url: 'https://twitter.com',
-      color: 'hover:text-sky-400'
-    },
+    { name: 'github', icon: 'fa-github', url: 'https://github.com/bcaffasson-stack', color: 'hover:text-gray-300' },
+    { name: 'linkedin', icon: 'fa-linkedin', url: 'https://linkedin.com/in/belco-caffasson', color: 'hover:text-blue-400' },
+    { name: 'twitter', icon: 'fa-twitter', url: 'https://twitter.com/bcaffasson', color: 'hover:text-sky-400' },
   ];
 
   const scrollToTop = () => {
@@ -40,11 +25,11 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-16 pb-8">
-      {/* Ligne décorative */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 via-primary-400 to-primary-600"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          
           {/* Section À propos */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -65,17 +50,12 @@ export default function Footer() {
                 </h3>
               </div>
             </div>
-            
             <p className="text-gray-400 leading-relaxed mb-6">
               {personalInfo.title} — Passionné par la création d'applications web modernes et innovantes.
             </p>
-            
             <div className="flex flex-wrap gap-2">
               {['React', 'Vue.js', 'PHP', 'Python', 'MySQL'].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full border border-gray-700"
-                >
+                <span key={tech} className="px-3 py-1 text-xs font-medium bg-gray-800 text-gray-300 rounded-full border border-gray-700">
                   {tech}
                 </span>
               ))}
@@ -96,6 +76,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
+                  {/* ✅ BALISE <a> CORRIGÉE */}
                   <a
                     href={link.href}
                     className="group flex items-center text-gray-400 hover:text-primary-400 transition-all duration-300"
@@ -125,6 +106,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
+                {/* ✅ BALISE <a> CORRIGÉE */}
                 <a
                   href={`mailto:${personalInfo.email}`}
                   className="group flex items-start space-x-3 text-gray-400 hover:text-primary-400 transition-all duration-300"
@@ -138,8 +120,8 @@ export default function Footer() {
                   </div>
                 </a>
               </li>
-              
               <li>
+                {/* ✅ BALISE <a> CORRIGÉE */}
                 <a
                   href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}
                   className="group flex items-start space-x-3 text-gray-400 hover:text-primary-400 transition-all duration-300"
@@ -153,7 +135,6 @@ export default function Footer() {
                   </div>
                 </a>
               </li>
-              
               <li>
                 <div className="group flex items-start space-x-3 text-gray-400">
                   <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-all duration-300 flex-shrink-0">
@@ -179,7 +160,6 @@ export default function Footer() {
               <i className="fas fa-share-alt text-primary-500 mr-3"></i>
               Suivez-moi
             </h4>
-            
             <div className="flex space-x-3 mb-8">
               {socialLinks.map((social) => (
                 <motion.a
@@ -195,7 +175,6 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-
             <div className="p-4 bg-gray-800 rounded-xl border border-gray-700">
               <p className="text-sm text-gray-400 mb-2 flex items-center">
                 <span className="relative flex h-3 w-3 mr-2">
@@ -205,18 +184,9 @@ export default function Footer() {
                 Disponible pour :
               </p>
               <ul className="space-y-1 text-xs text-gray-500">
-                <li className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-2 text-[10px]"></i>
-                  Stages en entreprise
-                </li>
-                <li className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-2 text-[10px]"></i>
-                  Projets freelance
-                </li>
-                <li className="flex items-center">
-                  <i className="fas fa-check text-green-500 mr-2 text-[10px]"></i>
-                  Collaborations
-                </li>
+                <li className="flex items-center"><i className="fas fa-check text-green-500 mr-2 text-[10px]"></i>Stages en entreprise</li>
+                <li className="flex items-center"><i className="fas fa-check text-green-500 mr-2 text-[10px]"></i>Projets freelance</li>
+                <li className="flex items-center"><i className="fas fa-check text-green-500 mr-2 text-[10px]"></i>Collaborations</li>
               </ul>
             </div>
           </motion.div>
@@ -228,16 +198,9 @@ export default function Footer() {
             <p className="text-gray-500 text-sm">
               © {currentYear} {personalInfo.name}. Tous droits réservés.
             </p>
-            
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-gray-500 hover:text-gray-400 text-sm transition-colors">
-                Mentions légales
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-400 text-sm transition-colors">
-                Politique de confidentialité
-              </a>
-              
-              {/* Bouton retour en haut */}
+              <a href="#" className="text-gray-500 hover:text-gray-400 text-sm transition-colors">Mentions légales</a>
+              <a href="#" className="text-gray-500 hover:text-gray-400 text-sm transition-colors">Politique de confidentialité</a>
               <motion.button
                 onClick={scrollToTop}
                 whileHover={{ scale: 1.1 }}
@@ -248,19 +211,6 @@ export default function Footer() {
                 <i className="fas fa-arrow-up"></i>
               </motion.button>
             </div>
-          </div>
-          
-          {/* Texte de remerciement */}
-          <div className="mt-6 text-center">
-            <p className="text-gray-600 text-xs">
-              Fait avec <i className="fas fa-heart text-red-500 animate-pulse mx-1"></i> 
-              en utilisant React, Tailwind CSS & Framer Motion
-            </p>
-            <p className="text-gray-600 text-xs mt-1">
-              Portfolio conçu par {personalInfo.shortName} — 
-              <i className="fas fa-map-pin text-primary-500 mx-1"></i>
-              {personalInfo.location}
-            </p>
           </div>
         </div>
       </div>
