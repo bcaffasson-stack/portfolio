@@ -191,6 +191,7 @@ export const formations = [
     badge: null,
     details: null,
     type: "degree",
+    certificate: null,
   },
   {
     id: 2,
@@ -201,6 +202,7 @@ export const formations = [
     badge: null,
     details: null,
     type: "training",
+    certificate: null,
   },
   {
     id: 3,
@@ -211,6 +213,7 @@ export const formations = [
     badge: "Attestation obtenue",
     details: null,
     type: "certification",
+    certificate: `${import.meta.env.BASE_URL}assets/certificates/certificat-odc-risque-zero.jpg`,
   },
   {
     id: 4,
@@ -218,9 +221,10 @@ export const formations = [
     title: "Apprentissage de la langue anglaise",
     org: "International TEFL / TESOL Training Institute (ITTI) — Mahajanga",
     description: "Niveau certifié pour un usage professionnel et technique.",
-    badge: null,
+    badge: "Certificate C1 — Advanced High English",
     details: null,
     type: "language",
+    certificate: `${import.meta.env.BASE_URL}assets/certificates/certificat-anglais-c1.jpg`,
   },
   {
     id: 5,
@@ -234,6 +238,7 @@ export const formations = [
       "Formation aux outils bureautiques Word et Excel",
     ],
     type: "degree",
+    certificate: `${import.meta.env.BASE_URL}assets/certificates/attestation-bureautique-montfort.jpg`,
   },
 ];
 

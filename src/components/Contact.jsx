@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { personalInfo, contactCards } from '../data/content';
+import emailjs from '@emailjs/browser';
+import { contactCards } from '../data/content';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,20 +15,33 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulation d'envoi
-    setTimeout(() => {
-      console.log('Message envoyé :', formData);
-      alert('✅ Message envoyé avec succès !\n\nMerci de m\'avoir contacté. Je vous répondrai dans les plus brefs délais.');
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
+
+    emailjs.send(
+      'service_iurz4x6',
+      'template_tsft59o',
+      {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      },
+      'KSo-EUMIVDr4uJvM-'
+    )
+      .then(() => {
+        alert('✅ Message envoyé avec succès !\n\nMerci de m\'avoir contacté. Je vous répondrai dans les plus brefs délais.');
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('Erreur EmailJS :', error);
+        alert('❌ Une erreur est survenue lors de l\'envoi. Merci de réessayer ou de me contacter directement par email.');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +64,6 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Informations de contact */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -76,6 +89,7 @@ export default function Contact() {
                     className="group"
                   >
                     {item.href ? (
+                      /* ✅ BALISE <a> CORRIGÉE */
                       <a
                         href={item.href}
                         className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300"
@@ -112,7 +126,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Réseaux sociaux */}
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">
                   Retrouvez-moi sur :
@@ -120,8 +133,8 @@ export default function Contact() {
                 <div className="flex space-x-4">
                   {[
                     { name: 'github', icon: 'fa-github', url: 'https://github.com/bcaffasson-stack', color: 'hover:bg-gray-800' },
-                    { name: 'linkedin', icon: 'fa-linkedin', url: 'https://linkedin.com', color: 'hover:bg-blue-700' },
-                    { name: 'twitter', icon: 'fa-twitter', url: 'https://twitter.com', color: 'hover:bg-sky-500' },
+                    { name: 'linkedin', icon: 'fa-linkedin', url: 'https://linkedin.com/in/belco-caffasson', color: 'hover:bg-blue-700' },
+                    { name: 'twitter', icon: 'fa-twitter', url: 'https://twitter.com/bcaffasson', color: 'hover:bg-sky-500' },
                   ].map((social) => (
                     <motion.a
                       key={social.name}
@@ -138,7 +151,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Disponibilité */}
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -151,18 +163,13 @@ export default function Contact() {
                   <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-green-700 dark:text-green-400">
-                    Ouvert aux opportunités
-                  </p>
-                  <p className="text-xs text-green-600 dark:text-green-500">
-                    Stages, projets freelance et collaborations
-                  </p>
+                  <p className="text-sm font-semibold text-green-700 dark:text-green-400">Ouvert aux opportunités</p>
+                  <p className="text-xs text-green-600 dark:text-green-500">Stages, projets freelance et collaborations</p>
                 </div>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Formulaire de contact */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -174,110 +181,52 @@ export default function Contact() {
                 <i className="fas fa-envelope text-primary-500 mr-3"></i>
                 Envoyez-moi un message
               </h3>
-              
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-                Je vous répondrai dans les plus brefs délais
-              </p>
-
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">Je vous répondrai dans les plus brefs délais</p>
               <div className="space-y-5">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    <i className="fas fa-user mr-2 text-primary-500"></i>
-                    Nom complet
+                    <i className="fas fa-user mr-2 text-primary-500"></i>Nom complet
                   </label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    required
+                  <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 placeholder-gray-400"
-                    placeholder="Votre nom complet"
-                  />
+                    placeholder="Votre nom complet" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    <i className="fas fa-at mr-2 text-primary-500"></i>
-                    Email
+                    <i className="fas fa-at mr-2 text-primary-500"></i>Email
                   </label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    required
+                  <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 placeholder-gray-400"
-                    placeholder="votre@email.com"
-                  />
+                    placeholder="votre@email.com" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                    <i className="fas fa-comment mr-2 text-primary-500"></i>
-                    Message
+                    <i className="fas fa-comment mr-2 text-primary-500"></i>Message
                   </label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    required
-                    rows="5"
+                  <textarea value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required rows="5"
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none placeholder-gray-400"
-                    placeholder="Décrivez votre projet ou votre message..."
-                  ></textarea>
+                    placeholder="Décrivez votre projet ou votre message..."></textarea>
                 </div>
               </div>
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-3 ${
-                  isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                }`}
-              >
+              <motion.button type="submit" disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                className={`w-full py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-3 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}>
                 {isSubmitting ? (
-                  <>
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    >
-                      <i className="fas fa-spinner"></i>
-                    </motion.div>
-                    <span>Envoi en cours...</span>
-                  </>
+                  <><motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }}><i className="fas fa-spinner"></i></motion.div><span>Envoi en cours...</span></>
                 ) : (
-                  <>
-                    <i className="fas fa-paper-plane"></i>
-                    <span>Envoyer le message</span>
-                    <i className="fas fa-arrow-right"></i>
-                  </>
+                  <><i className="fas fa-paper-plane"></i><span>Envoyer le message</span><i className="fas fa-arrow-right"></i></>
                 )}
               </motion.button>
             </form>
           </motion.div>
         </div>
 
-        {/* Section confiance */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }} viewport={{ once: true }} className="mt-16 text-center">
           <div className="inline-flex items-center space-x-8 text-gray-400 dark:text-gray-500">
-            <div className="flex items-center space-x-2">
-              <i className="fas fa-shield-alt text-green-500"></i>
-              <span className="text-sm">Réponse rapide</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <i className="fas fa-lock text-green-500"></i>
-              <span className="text-sm">Données sécurisées</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <i className="fas fa-clock text-green-500"></i>
-              <span className="text-sm">Sous 24h</span>
-            </div>
+            <div className="flex items-center space-x-2"><i className="fas fa-shield-alt text-green-500"></i><span className="text-sm">Réponse rapide</span></div>
+            <div className="flex items-center space-x-2"><i className="fas fa-lock text-green-500"></i><span className="text-sm">Données sécurisées</span></div>
+            <div className="flex items-center space-x-2"><i className="fas fa-clock text-green-500"></i><span className="text-sm">Sous 24h</span></div>
           </div>
         </motion.div>
       </div>

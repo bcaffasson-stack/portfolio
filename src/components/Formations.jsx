@@ -110,18 +110,36 @@ export default function Formations() {
                       </ul>
                     )}
 
-                    {/* Badge de certification */}
-                    {formation.badge && (
-                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
-                        <i className="fas fa-medal text-green-400 text-sm"></i>
-                        <span className="text-xs font-medium text-green-400">
-                          {formation.badge}
-                        </span>
-                      </div>
-                    )}
+                    {/* Badge + Certificat */}
+                    <div className="relative z-20 flex flex-wrap items-center gap-3">
+                      {/* Badge de certification */}
+                      {formation.badge && (
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
+                          <i className="fas fa-medal text-green-400 text-sm"></i>
+                          <span className="text-xs font-medium text-green-400">
+                            {formation.badge}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Lien vers le certificat */}
+                      {formation.certificate && (
+                        <button
+                          type="button"
+                          onClick={() => window.open(formation.certificate, '_blank', 'noopener,noreferrer')}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full hover:bg-primary-500/20 transition-colors duration-300 group/cert cursor-pointer"
+                        >
+                          <i className="fas fa-file-image text-primary-400 text-sm"></i>
+                          <span className="text-xs font-medium text-primary-400">
+                            Voir le certificat
+                          </span>
+                          <i className="fas fa-external-link-alt text-primary-400 text-[10px] group-hover/cert:translate-x-0.5 transition-transform"></i>
+                        </button>
+                      )}
+                    </div>
 
                     {/* Effet de brillance au hover */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500/0 via-primary-500/10 to-primary-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500/0 via-primary-500/10 to-primary-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   </motion.div>
                 </div>
               </motion.div>

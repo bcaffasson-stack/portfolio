@@ -157,7 +157,7 @@ export default function LanguesPassions() {
                   <div className="text-xs text-gray-500 dark:text-gray-400">Moyenne</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-display font-bold text-primary-500">B2</div>
+                  <div className="text-2xl font-display font-bold text-primary-500">C1</div>
                   <div className="text-xs text-gray-500 dark:text-gray-400">Niveau min</div>
                 </div>
               </motion.div>
