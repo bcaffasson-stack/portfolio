@@ -20,7 +20,7 @@ export const personalInfo = {
   stats: [
     { value: "2026", label: "Licence en cours — ENI" },
     { value: "03", label: "Langues parlées" },
-    { value: "Multiples", label: "Projets Académiques Menés" },
+    { value: "Multiples", label: "Projets réalisés" },
   ],
 };
 
@@ -175,6 +175,22 @@ export const projects = [
         alt: "Traceroute bout-à-bout",
       },
     ],
+  },
+  {
+    id: 4,
+    title: "Projet DHTML — Boîte à Outils Web",
+    description: "Site interactif regroupant plusieurs outils web (Cramer, images, panneau, tableau de données)",
+    date: "2026",
+    image: `${import.meta.env.BASE_URL}assets/projects/projet-dhtml.png`,
+    technologies: ["HTML", "CSS", "JavaScript"],
+    details: [
+      "Développement d'un site multi-pages en JavaScript pur (DOM, fetch, manipulation dynamique du contenu).",
+      "Résolution de systèmes d'équations linéaires par la méthode de Cramer, avec affichage détaillé des matrices et déterminants.",
+      "Modules additionnels : redimensionnement/transformation d'images, panneau publicitaire rotatif, tableau de données avec statistiques.",
+    ],
+    github: "https://github.com/bcaffasson-stack/Projet-Js",
+    live: "https://projet-js-nu.vercel.app",
+    featured: true,
   },
 ];
 
@@ -369,9 +385,9 @@ export const globalStats = {
     topSkill: "Savoir-être (95%)",
   },
   projects: {
-    total: 3,
-    featured: 3,
-    technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP"],
+    total: 4,
+    featured: 4,
+    technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP", "JavaScript"],
   },
   formations: {
     total: 5,
