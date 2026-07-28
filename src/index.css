@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply font-sans antialiased;
+  overflow-x: hidden;
+}
+
+/* Thèmes */
+body {
+  @apply bg-gray-50 text-gray-900;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* ✅ AJOUT IMPORTANT : Scroll margin pour les sections */
+/* Cela compense la hauteur de la navbar fixe */
+section {
+  scroll-margin-top: 5rem;
+}
+
+/* Sélection de texte */
+::selection {
+  @apply bg-primary-500 text-white;
+}
+
+.dark ::selection {
+  @apply bg-primary-400 text-gray-900;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-400 dark:bg-primary-600 rounded-full;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500 dark:bg-primary-500;
+}
+
+/* Scrollbar Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #f3f4f6;
+}
+
+.dark * {
+  scrollbar-color: #3b82f6 #1f2937;
+}
+
+/* Composants réutilisables */
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-primary-600 to-blue-600;
+  }
+  
+  .gradient-text-light {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-blue-500;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card:hover {
+    @apply shadow-2xl border-primary-200 dark:border-primary-800;
+    transform: translateY(-2px);
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-primary:hover {
+    @apply shadow-lg shadow-primary-500/30 from-primary-600 to-primary-700;
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary-500 text-primary-500 rounded-full font-semibold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-outline:hover {
+    @apply bg-primary-50 dark:bg-primary-900/20 shadow-lg;
+    transform: translateY(-2px);
+  }
+  
+  .section-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 text-center;
+    line-height: 1.2;
+  }
+  
+  .section-subtitle {
+    @apply text-gray-600 dark:text-gray-400 text-base sm:text-lg mb-12 max-w-2xl mx-auto text-center;
+    line-height: 1.6;
+  }
+  
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs tracking-[0.14em] uppercase text-primary-500 font-medium mb-4;
+  }
+  
+  .eyebrow::before {
+    content: "";
+    @apply w-6 h-px bg-primary-500;
+  }
+  
+  .glass {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-md;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 dark:bg-white/10 backdrop-blur-md;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Animations au scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Délais d'animation */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Animations personnalisées */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Effets de verre (glassmorphism) */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-effect {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Transitions de thème */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 0.3s ease-in-out,
+              border-color 0.3s ease-in-out,
+              color 0.3s ease-in-out,
+              fill 0.3s ease-in-out,
+              stroke 0.3s ease-in-out,
+              box-shadow 0.3s ease-in-out !important;
+}
+
+/* Mode sombre - ajustements */
+.dark {
+  color-scheme: dark;
+}
+
+.dark img:not([src*='.svg']) {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+              0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+              0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet de focus */
+*:focus-visible {
+  @apply outline-2 outline-primary-500 outline-offset-2;
+  border-radius: 4px;
+}
+
+/* Styles d'impression */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Accessibilité - réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilitaires supplémentaires */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}
