@@ -5,7 +5,7 @@ export default function Formations() {
   return (
     <section id="formations" className="relative py-20 md:py-28 overflow-hidden">
       {/* Fond avec dégradé */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black dark:from-black dark:via-gray-900 dark:to-gray-800">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50 to-white dark:from-black dark:via-gray-900 dark:to-gray-800">
         {/* Motif de fond */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -25,21 +25,21 @@ export default function Formations() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.14em] uppercase text-primary-400 font-medium mb-4">
-            <span className="w-8 h-[1px] bg-primary-400"></span>
+          <span className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.14em] uppercase text-primary-500 dark:text-primary-400 font-medium mb-4">
+            <span className="w-8 h-[1px] bg-primary-500 dark:bg-primary-400"></span>
             <i className="fas fa-graduation-cap"></i>
             Formations & Certifications
-            <span className="w-8 h-[1px] bg-primary-400"></span>
+            <span className="w-8 h-[1px] bg-primary-500 dark:bg-primary-400"></span>
           </span>
           
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
             Un parcours{' '}
-            <em className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-200">
+            <em className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-300 dark:from-primary-400 dark:to-primary-200">
               en progrès
             </em>
           </h2>
           
-          <p className="max-w-2xl mx-auto text-gray-400 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 leading-relaxed">
             De la licence en informatique aux formations complémentaires en sécurité, anglais et bureautique.
           </p>
         </motion.div>
@@ -62,38 +62,38 @@ export default function Formations() {
                 }`}
               >
                 {/* Point sur la timeline */}
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-primary-500 rounded-full border-4 border-gray-900 transform -translate-x-1/2 mt-6 z-10 shadow-lg shadow-primary-500/50"></div>
+                <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-primary-500 rounded-full border-4 border-gray-50 dark:border-gray-900 transform -translate-x-1/2 mt-6 z-10 shadow-lg shadow-primary-500/50"></div>
 
                 {/* Carte de formation */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -2 }}
-                    className="group relative bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                    className="group relative bg-white dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-2xl p-6 hover:bg-gray-50 dark:hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-2xl"
                   >
                     {/* Date */}
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <i className="fas fa-calendar-alt text-white text-sm"></i>
                       </div>
-                      <span className="font-mono text-xs text-primary-400 tracking-wider">
+                      <span className="font-mono text-xs text-primary-600 dark:text-primary-400 tracking-wider">
                         {formation.date}
                       </span>
                     </div>
 
                     {/* Titre */}
-                    <h3 className="text-xl font-display font-bold text-white mb-2 group-hover:text-primary-300 transition-colors">
+                    <h3 className="text-xl font-display font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors">
                       {formation.title}
                     </h3>
 
                     {/* Organisation */}
-                    <div className="flex items-center gap-2 text-gray-400 mb-3">
+                    <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-3">
                       <i className="fas fa-building text-primary-500 text-sm"></i>
                       <span className="text-sm">{formation.org}</span>
                     </div>
 
                     {/* Description */}
                     {formation.description && (
-                      <p className="text-gray-300 leading-relaxed text-sm mb-4">
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm mb-4">
                         {formation.description}
                       </p>
                     )}
@@ -102,7 +102,7 @@ export default function Formations() {
                     {formation.details && (
                       <ul className="space-y-2 mb-4">
                         {formation.details.map((detail, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
                             <i className="fas fa-check-circle text-primary-500 mt-1 text-xs"></i>
                             <span>{detail}</span>
                           </li>
@@ -114,9 +114,9 @@ export default function Formations() {
                     <div className="relative z-20 flex flex-wrap items-center gap-3">
                       {/* Badge de certification */}
                       {formation.badge && (
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
-                          <i className="fas fa-medal text-green-400 text-sm"></i>
-                          <span className="text-xs font-medium text-green-400">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-500/10 border border-green-300 dark:border-green-500/30 rounded-full">
+                          <i className="fas fa-medal text-green-600 dark:text-green-400 text-sm"></i>
+                          <span className="text-xs font-medium text-green-700 dark:text-green-400">
                             {formation.badge}
                           </span>
                         </div>
@@ -127,13 +127,13 @@ export default function Formations() {
                         <button
                           type="button"
                           onClick={() => window.open(formation.certificate, '_blank', 'noopener,noreferrer')}
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full hover:bg-primary-500/20 transition-colors duration-300 group/cert cursor-pointer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-50 dark:bg-primary-500/10 border border-primary-300 dark:border-primary-500/30 rounded-full hover:bg-primary-100 dark:hover:bg-primary-500/20 transition-colors duration-300 group/cert cursor-pointer"
                         >
-                          <i className="fas fa-file-image text-primary-400 text-sm"></i>
-                          <span className="text-xs font-medium text-primary-400">
+                          <i className="fas fa-file-image text-primary-600 dark:text-primary-400 text-sm"></i>
+                          <span className="text-xs font-medium text-primary-600 dark:text-primary-400">
                             Voir le certificat
                           </span>
-                          <i className="fas fa-external-link-alt text-primary-400 text-[10px] group-hover/cert:translate-x-0.5 transition-transform"></i>
+                          <i className="fas fa-external-link-alt text-primary-600 dark:text-primary-400 text-[10px] group-hover/cert:translate-x-0.5 transition-transform"></i>
                         </button>
                       )}
                     </div>
@@ -168,15 +168,15 @@ export default function Formations() {
               transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/20 transition-all duration-300"
+              className="bg-white dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-2xl p-6 text-center hover:bg-gray-50 dark:hover:bg-white/20 transition-all duration-300 shadow-md"
             >
               <div className={`w-12 h-12 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mx-auto mb-3 shadow-lg`}>
                 <i className={`fas ${stat.icon} text-white text-lg`}></i>
               </div>
-              <div className="text-2xl font-display font-bold text-white mb-1">
+              <div className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-1">
                 {stat.value}
               </div>
-              <div className="text-xs text-gray-400 font-medium">
+              <div className="text-xs text-gray-600 dark:text-gray-400 font-medium">
                 {stat.label}
               </div>
             </motion.div>
