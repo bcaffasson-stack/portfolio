@@ -9,8 +9,8 @@ export const personalInfo = {
   phone: "+261 38 405 14 37",
   phoneFormatted: "+261384051437",
   location: "Fianarantsoa, Madagascar",
-  cvLink: "/assets/CV_pro.pdf",
-  photo: "/assets/belco.jpeg", // ✅ Changé en .jpeg
+  cvLink: `${import.meta.env.BASE_URL}assets/CV_pro.pdf`,
+  photo: `${import.meta.env.BASE_URL}assets/belco.jpeg`,
   description: "Étudiant en deuxième année de licence à l'École Nationale d'Informatique (ENI), passionné par le développement web et la création d'applications modernes. Curieux, motivé et rigoureux — je construis avec React, Vue.js, PHP et Python, et j'aime comprendre comment les systèmes s'articulent, du code jusqu'au réseau.",
   social: {
     github: "https://github.com/bcaffasson-stack",
