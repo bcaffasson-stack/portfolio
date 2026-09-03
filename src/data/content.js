@@ -197,7 +197,7 @@ export const projects = [
     title: "Infrastructure Réseau — L2ENI",
     description: "Mini-datacenter sur VM Debian 13 : site web LDAP, serveur mail, DNS et monitoring avec alertes",
     date: "2026",
-    image: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/appli-login.png",
+    image: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/master/docs/screenshots/appli-login.png",
     technologies: ["Debian", "Apache", "OpenLDAP", "Postfix", "Dovecot", "Roundcube", "BIND9", "Prometheus", "Grafana"],
     details: [
       "Déploiement d'une infrastructure d'entreprise complète sur une seule machine virtuelle Debian 13.",
@@ -210,15 +210,15 @@ export const projects = [
     featured: true,
     gallery: [
       {
-        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/appli-login.png",
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/master/docs/screenshots/appli-login.png",
         alt: "Page de connexion du site web avec authentification LDAP",
       },
       {
-        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/webmail-login.png",
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/master/docs/screenshots/webmail-login.png",
         alt: "Interface de connexion Roundcube (webmail)",
       },
       {
-        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/grafana-login.png",
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/master/docs/screenshots/grafana-login.png",
         alt: "Page de connexion Grafana (supervision)",
       },
     ],
