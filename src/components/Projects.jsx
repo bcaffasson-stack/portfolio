@@ -202,6 +202,13 @@ export default function Projects() {
                   </div>
                 </div>
 
+                  {/* Indicateur : cliquer pour voir les détails */}
+                  <div className="flex items-center justify-center gap-1.5 pt-3 pb-1 text-primary-500 dark:text-primary-400 text-xs font-semibold group-hover:text-primary-600 transition-colors">
+                    <i className={`fas ${selectedProject === project.id ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+                    <span>{selectedProject === project.id ? 'Replier' : 'Voir plus de détails'}</span>
+                    <i className={`fas ${selectedProject === project.id ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+                  </div>
+
                 {/* Détails étendus */}
                 <AnimatePresence>
                   {selectedProject === project.id && (
