@@ -117,21 +117,6 @@ export const skills = [
 // ============================================
 export const projects = [
   {
-    id: 1,
-    title: "Développement Web",
-    description: "Conception et réalisation d'applications web modernes",
-    date: "2025 — 2026",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600",
-    technologies: ["C#", "React", "Vue.js", "PHP · PDO", "MySQL"],
-    details: [
-      "Conception et réalisation d'applications web modernes en utilisant C#, JavaScript, Vue.js, React et Python.",
-      "Mise en œuvre d'architectures structurées (MVC) et gestion de bases de données avec PHP (PDO) et MySQL.",
-    ],
-    github: null,
-    live: null,
-    featured: true,
-  },
-  {
     id: 2,
     title: "Projet PHP — Gestion de Restaurant",
     description: "Application web complète de gestion pour un restaurant",
@@ -447,8 +432,8 @@ export const globalStats = {
     topSkill: "Savoir-être (95%)",
   },
   projects: {
-    total: 6,
-    featured: 6,
+    total: 5,
+    featured: 5,
     technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP", "JavaScript", "Debian", "Apache", "OpenLDAP", "Postfix", "Dovecot", "Roundcube", "BIND9", "Prometheus", "Grafana", "OPNsense", "Suricata", "Kali Linux", "VirtualBox", "Nmap", "Hydra"],
   },
   formations: {
