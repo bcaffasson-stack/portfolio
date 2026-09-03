@@ -228,7 +228,7 @@ export const projects = [
     title: "Réseau Sécurisé — OPNsense & Suricata",
     description: "Architecture réseau sécurisée : pare-feu OPNsense, DMZ, IDS Suricata et campagne Red Team (Nmap + Hydra)",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
+    image: "https://raw.githubusercontent.com/bcaffasson-stack/projet-ssi-opnsense/main/captures/01-redteam/01-nmap-scan.png",
     technologies: ["OPNsense", "Suricata", "Kali Linux", "VirtualBox", "Nmap", "Hydra", "DMZ", "Red Team"],
     details: [
       "Conception d'une architecture réseau segmentée en trois zones (WAN, LAN, DMZ) reposant sur le pare-feu open-source OPNsense.",
@@ -239,6 +239,20 @@ export const projects = [
     github: "https://github.com/bcaffasson-stack/projet-ssi-opnsense",
     live: null,
     featured: true,
+    gallery: [
+      {
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/projet-ssi-opnsense/main/captures/01-redteam/01-nmap-scan.png",
+        alt: "Scan Nmap de Kali vers le serveur Windows (ports 135, 139, 389, 445 ouverts)",
+      },
+      {
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/projet-ssi-opnsense/main/captures/01-redteam/02-hydra-ssh.png",
+        alt: "Attaque par force brute Hydra sur le service SSH",
+      },
+      {
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/projet-ssi-opnsense/main/captures/02-suricata/04-alertes-suricata.png",
+        alt: "Journal des alertes Suricata détectant les attaques",
+      },
+    ],
   },
 ];
 
