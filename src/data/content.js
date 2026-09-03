@@ -223,6 +223,23 @@ export const projects = [
       },
     ],
   },
+  {
+    id: 6,
+    title: "Réseau Sécurisé — OPNsense & Suricata",
+    description: "Architecture réseau sécurisée : pare-feu OPNsense, DMZ, IDS Suricata et campagne Red Team (Nmap + Hydra)",
+    date: "2026",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
+    technologies: ["OPNsense", "Suricata", "Kali Linux", "VirtualBox", "Nmap", "Hydra", "DMZ", "Red Team"],
+    details: [
+      "Conception d'une architecture réseau segmentée en trois zones (WAN, LAN, DMZ) reposant sur le pare-feu open-source OPNsense.",
+      "Isolation stricte de la DMZ (serveur Web) vis-à-vis du LAN via des règles de pare-feu et port forwarding sécurisé.",
+      "Déploiement du système de détection d'intrusion Suricata et de règles personnalisées (scans Nmap, force brute Hydra).",
+      "Simulation d'une campagne d'attaques Red Team depuis Kali Linux (Nmap, Hydra) et mise en évidence de leur détection dans le journal d'alertes de l'IDS.",
+    ],
+    github: "https://github.com/bcaffasson-stack/projet-ssi-opnsense",
+    live: null,
+    featured: true,
+  },
 ];
 
 // ============================================
@@ -416,9 +433,9 @@ export const globalStats = {
     topSkill: "Savoir-être (95%)",
   },
   projects: {
-    total: 5,
-    featured: 5,
-    technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP", "JavaScript", "Debian", "Apache", "OpenLDAP", "Postfix", "Dovecot", "Roundcube", "BIND9", "Prometheus", "Grafana"],
+    total: 6,
+    featured: 6,
+    technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP", "JavaScript", "Debian", "Apache", "OpenLDAP", "Postfix", "Dovecot", "Roundcube", "BIND9", "Prometheus", "Grafana", "OPNsense", "Suricata", "Kali Linux", "VirtualBox", "Nmap", "Hydra"],
   },
   formations: {
     total: 5,
