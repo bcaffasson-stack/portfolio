@@ -192,6 +192,37 @@ export const projects = [
     live: "https://projet-js-nu.vercel.app",
     featured: true,
   },
+  {
+    id: 5,
+    title: "Infrastructure Réseau — L2ENI",
+    description: "Mini-datacenter sur VM Debian 13 : site web LDAP, serveur mail, DNS et monitoring avec alertes",
+    date: "2026",
+    image: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/appli-login.png",
+    technologies: ["Debian", "Apache", "OpenLDAP", "Postfix", "Dovecot", "Roundcube", "BIND9", "Prometheus", "Grafana"],
+    details: [
+      "Déploiement d'une infrastructure d'entreprise complète sur une seule machine virtuelle Debian 13.",
+      "Site web avec authentification centralisée via OpenLDAP (appli.l2eni.mg), serveur de messagerie Postfix + Dovecot + Roundcube (webmail.l2eni.mg), et DNS BIND9 pour le domaine l2eni.mg.",
+      "Supervision en temps réel avec Prometheus, Grafana et Alertmanager : alertes par e-mail si un service tombe (CPU > 80%, RAM > 95%, disque > 90%).",
+      "Sécurisation SSL/TLS (mkcert), fail2ban (6 jails), et machine virtuelle exposée via VirtualBox.",
+    ],
+    github: "https://github.com/bcaffasson-stack/l2eni-mg-infra",
+    live: null,
+    featured: true,
+    gallery: [
+      {
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/appli-login.png",
+        alt: "Page de connexion du site web avec authentification LDAP",
+      },
+      {
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/webmail-login.png",
+        alt: "Interface de connexion Roundcube (webmail)",
+      },
+      {
+        url: "https://raw.githubusercontent.com/bcaffasson-stack/l2eni-mg-infra/main/docs/screenshots/grafana-login.png",
+        alt: "Page de connexion Grafana (supervision)",
+      },
+    ],
+  },
 ];
 
 // ============================================
@@ -385,9 +416,9 @@ export const globalStats = {
     topSkill: "Savoir-être (95%)",
   },
   projects: {
-    total: 4,
-    featured: 4,
-    technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP", "JavaScript"],
+    total: 5,
+    featured: 5,
+    technologies: ["C#", "React", "Vue.js", "PHP", "MySQL", "Bootstrap", "GNS3", "OSPF", "RIP", "JavaScript", "Debian", "Apache", "OpenLDAP", "Postfix", "Dovecot", "Roundcube", "BIND9", "Prometheus", "Grafana"],
   },
   formations: {
     total: 5,
